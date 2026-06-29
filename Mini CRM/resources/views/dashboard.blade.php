@@ -24,8 +24,8 @@
             <p class="text-sm text-gray-500">Lost Leads</p>
             <p class="text-3xl font-bold text-red-600">0</p>
         </div>
-        <div class="bg-red-500 p-10">
-    Tailwind Test
+        <div class="bg-red-500 text-white text-4xl p-10">
+    TAILWIND TEST
 </div>
 
         <div x-data="{ count: 0 }" class="p-4 bg-white rounded shadow">
