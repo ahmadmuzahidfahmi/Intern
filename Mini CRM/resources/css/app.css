@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 /* Header improvements */
 nav {
   font-family: 'Inter', sans-serif; /* clean modern font */

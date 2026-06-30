@@ -24,9 +24,7 @@
             <p class="text-sm text-gray-500">Lost Leads</p>
             <p class="text-3xl font-bold text-red-600">0</p>
         </div>
-        <div class="bg-red-500 text-white text-4xl p-10">
-    TAILWIND TEST
-</div>
+<div class="bg-red-500 text-4xl font-bold">Is Tailwind working?</div>
 
         <div x-data="{ count: 0 }" class="p-4 bg-white rounded shadow">
     <button @click="count++" class="px-4 py-2 bg-indigo-600 text-white rounded">
