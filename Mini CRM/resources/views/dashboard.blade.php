@@ -11,9 +11,9 @@
 
     <!-- Summary Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div class="bg-white rounded-lg shadow p-6">
-            <p class="text-sm text-gray-500">Total Customers</p>
-            <p class="text-3xl font-bold text-indigo-600">0</p>
+        <div class="bg-white rounded-lg shadow p-8 sm:p-6">
+            <p class="text-base sm:text-sm text-gray-500">Total Customers</p>
+            <p class="text-4xl sm:text-3x1 font-bold text-indigo-600">0</p>
         </div>
 
         <div class="bg-white rounded-lg shadow p-6">
