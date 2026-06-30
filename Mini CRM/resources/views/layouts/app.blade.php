@@ -8,14 +8,13 @@
 <body class="bg-gray-100">
 
     <!-- Header / Navigation -->
-<nav class="bg-gradient-to-r from-indigo-700 to-indigo-600 text-white shadow-lg sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
+    <nav class="bg-[rgb(70,192,189)] text-white shadow-lg sticky top-0 z-50">   
+<div class="w-full px-6 py-4 flex items-center justify-between">
         <!-- Logo & Brand -->
         <div class="flex items-center space-x-3">
-            <div class="bg-white text-indigo-700 p-2 rounded-lg shadow">
+            <div>
             <img
-                src="{{ asset('image/Visivest Logo.png') }}"
+                src="{{ asset('image/Visivest Logo_White.png') }}"
                 alt="Visivest Logo"
                 style="height:150px; width:auto;">
             </div>
@@ -30,12 +29,12 @@
         <!-- Navigation -->
         <div class="hidden md:flex items-center space-x-8">
             <a href="{{ route('dashboard') }}"
-                class="font-medium hover:text-indigo-200 transition duration-200">
+            class="text-white pb-1 {{ request()->routeIs('dashboard') ? 'border-b-2 border-white' : '' }}">
                 Dashboard
             </a>
 
-            <a href="#"
-                class="font-medium hover:text-indigo-200 transition duration-200">
+            <a href="{{ route('customers') }}"
+            class="text-white pb-1 {{ request()->routeIs('customers') ? 'border-b-2 border-white' : '' }}">
                 Customers
             </a>
 
