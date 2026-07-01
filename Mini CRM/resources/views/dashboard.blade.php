@@ -2,6 +2,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 @extends('layouts.app')
 
 @section('content')
@@ -10,25 +11,41 @@
     </h1>
 
     <!-- Summary Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div class="bg-white rounded-lg shadow p-8 sm:p-6">
-            <p class="text-base sm:text-sm text-gray-500">Total Customers</p>
-            <p class="text-4xl sm:text-3x1 font-bold text-indigo-600">0</p>
-        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <a href="{{ route('customers') }}"
+        class="block bg-white rounded-lg shadow p-8 sm:p-6 hover:shadow-lg hover:-translate-y-1 transition duration-200 cursor-pointer">
+
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-base sm:text-sm text-gray-500">
+                        Total Customers
+                    </p>
+
+                    <p class="text-4xl sm:text-3xl font-bold text-indigo-600">
+                        {{ $totalCustomers }}
+                    </p>
+                </div>
+
+                <span class="text-gray-400 text-2xl">
+                    →
+                </span>
+            </div>
+        </a>
+                
 
         <div class="bg-white rounded-lg shadow p-6">
             <p class="text-sm text-gray-500">Total Leads</p>
-            <p class="text-3xl font-bold text-green-600">0</p>
+            <p class="text-3xl font-bold text-green-600">14</p>
         </div>
 
         <div class="bg-white rounded-lg shadow p-6">
             <p class="text-sm text-gray-500">Won Leads</p>
-            <p class="text-3xl font-bold text-emerald-600">0</p>
+            <p class="text-3xl font-bold text-emerald-600">14</p>
         </div>
 
         <div class="bg-white rounded-lg shadow p-6">
             <p class="text-sm text-gray-500">Lost Leads</p>
-            <p class="text-3xl font-bold text-red-600">0</p>
+            <p class="text-3xl font-bold text-red-600">14</p>
         </div>
     </div>
 

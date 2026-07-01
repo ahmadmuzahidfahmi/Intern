@@ -1,5 +1,7 @@
 <head> 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 
 </head>
 @extends('layouts.app')
@@ -8,10 +10,11 @@
 <div class="flex justify-between items-center mb-6">
     <h1 class="text-2xl font-bold text-gray-800">Customers</h1>
 
-    <button class="px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700">
+    <a href="{{ route('customers.create') }}" class="px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700">
         + Add Customer
-    </button>
+    </a>
 </div>
+
 
 <div class="bg-white rounded-lg shadow p-4 mb-6">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -87,142 +90,136 @@
         <table class="w-full text-sm text-left">
 
             <!-- Table Header -->
-            <thead class="bg-gray-50 text-gray-600 uppercase text-xs">
-                <tr>
-                    <th class="px-6 py-3">Customer</th>
-                    <th class="px-6 py-3">Email</th>
-                    <th class="px-6 py-3">Company</th>
-                    <th class="px-6 py-3">Phone</th>
-                    <th class="px-6 py-3">Status</th>
-                    <th class="px-6 py-3">Last Contact</th>
-                    <th class="px-6 py-3">Actions</th>
-                </tr>
-            </thead>
+<thead class="bg-gray-50 text-gray-600 uppercase text-xs">
+    <tr>
+        <!-- Customer (always visible) -->
+        <th class="px-6 py-3">Customer</th>
+
+        <!-- Email (hidden on mobile, visible on md+) -->
+        <th class="px-6 py-3 hidden md:table-cell">Email</th>
+
+        <!-- Company (always visible) -->
+        <th class="px-6 py-3">Company</th>
+
+        <!-- Phone (hidden on mobile, visible on md+) -->
+        <th class="px-6 py-3 hidden md:table-cell">Phone</th>
+
+        <!-- Status (always visible) -->
+        <th class="px-6 py-3">Status</th>
+
+        <!-- Last Contact (hidden on mobile, visible on lg+) -->
+        <th class="px-6 py-3 hidden lg:table-cell">Last Contact</th>
+
+        <!-- Actions (always visible) -->
+        <th class="px-6 py-3">Actions</th>
+    </tr>
+</thead>
+
 
             <!-- Table Body -->
-            <tbody class="divide-y divide-gray-200">
+<tbody class="divide-y divide-gray-200">
 
-                <tr class="hover:bg-gray-50">
-                    <td class="px-6 py-4 font-medium text-gray-900">
-                        John Doe
-                    </td>
-                    <td class="px-6 py-4">
-                        john@example.com
-                    </td>
-                    <td class="px-6 py-4">
-                        ABC Sdn Bhd
-                    </td>
-                    <td class="px-6 py-4">
-                        012-3456789
-                    </td>
-                    <td class="px-6 py-4">
-                        <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700">
-                            Active
-                        </span>
-                    </td>
-                    <td class="px-6 py-4">
-                        30 Jun 2026
-                    </td>
-                    <td class="px-6 py-4 space-x-2">
-                        <button class="text-cyan-600 hover:text-cyan-800">
-                            View
-                        </button>
-                        <button class="text-yellow-600 hover:text-yellow-800">
-                            Edit
-                        </button>
-                    </td>
-                </tr>
+@foreach($customers as $customer)
+        <tr class="hover:bg-gray-50">
 
-                <tr class="hover:bg-gray-50">
-                    <td class="px-6 py-4 font-medium text-gray-900">
-                        Sarah Lim
-                    </td>
-                    <td class="px-6 py-4">
-                        sarah@example.com
-                    </td>
-                    <td class="px-6 py-4">
-                        XYZ Tech
-                    </td>
-                    <td class="px-6 py-4">
-                        017-9876543
-                    </td>
-                    <td class="px-6 py-4">
-                        <span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700">
-                            Lead
-                        </span>
-                    </td>
-                    <td class="px-6 py-4">
-                        29 Jun 2026
-                    </td>
-                    <td class="px-6 py-4 space-x-2">
-                        <button class="text-cyan-600 hover:text-cyan-800">
-                            View
-                        </button>
-                        <button class="text-yellow-600 hover:text-yellow-800">
-                            Edit
-                        </button>
-                    </td>
-                </tr>
+            <td class="px-6 py-4 font-medium text-gray-900">
+                {{ $customer['name'] }}
+            </td>
 
-                <tr class="hover:bg-gray-50">
-                    <td class="px-6 py-4 font-medium text-gray-900">
-                        Ahmad Rahman
-                    </td>
-                    <td class="px-6 py-4">
-                        ahmad@example.com
-                    </td>
-                    <td class="px-6 py-4">
-                        Visivest
-                    </td>
-                    <td class="px-6 py-4">
-                        018-1234567
-                    </td>
-                    <td class="px-6 py-4">
-                        <span class="px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-700">
-                            Inactive
-                        </span>
-                    </td>
-                    <td class="px-6 py-4">
-                        25 Jun 2026
-                    </td>
-                    <td class="px-6 py-4 space-x-2">
-                        <button class="text-cyan-600 hover:text-cyan-800">
-                            View
-                        </button>
-                        <button class="text-yellow-600 hover:text-yellow-800">
-                            Edit
-                        </button>
-                    </td>
-                </tr>
+            <td class="px-6 py-4">
+                {{ $customer['email'] }}
+            </td>
 
-            </tbody>
+            <td class="px-6 py-4">
+                {{ $customer['company'] }}
+            </td>
+
+            <td class="px-6 py-4">
+                {{ $customer['phone'] }}
+            </td>
+
+            <td class="px-6 py-4">
+
+                @if($customer['status'] == 'Active')
+                    <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-700">
+                        Active
+                    </span>
+
+                @elseif($customer['status'] == 'Lead')
+                    <span class="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-700">
+                        Lead
+                    </span>
+
+                @else
+                    <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-700">
+                        Inactive
+                    </span>
+                @endif
+
+            </td>
+
+            <td class="px-6 py-4">
+                {{ $customer['last_contact'] }}
+            </td>
+
+            <td class="px-6 py-4">
+                <button class="text-cyan-600 hover:text-cyan-800">
+                    View
+                </button>
+            </td>
+
+        </tr>
+@endforeach
+
+</tbody>
 
         </table>
     </div>
 
 </div>
 
-<div class="flex items-center justify-between px-6 py-4 border-t bg-white">
-    <p class="text-sm text-gray-500">
-        Showing 1-10 of 50 customers
-    </p>
+<div class="flex items-center justify-between px-6 py-4">
+<p class="text-sm text-gray-500">
+    Showing {{ $customers->firstItem() }}–{{ $customers->lastItem() }}
+    of {{ $customers->total() }} customers
+</p>
+</div>
 
-    <div class="flex gap-2">
-        <button class="px-3 py-1 border rounded">
+<div class="px-6 py-4 border-t">
+   <div class="flex items-center justify-center gap-2 mt-6">
+
+    @if ($customers->onFirstPage())
+        <span class="px-4 py-2 bg-gray-100 text-gray-400 rounded-lg">
             Previous
-        </button>
+        </span>
+    @else
+        <a href="{{ $customers->previousPageUrl() }}"
+           class="px-4 py-2 bg-white border rounded-lg hover:bg-gray-50">
+            Previous
+        </a>
+    @endif
 
-        <button class="px-3 py-1 bg-cyan-600 text-white rounded">
-            1
-        </button>
+    @for ($i = 1; $i <= $customers->lastPage(); $i++)
+        <a href="{{ $customers->url($i) }}"
+           class="px-4 py-2 rounded-lg
+           {{ $customers->currentPage() == $i
+               ? 'bg-cyan-600 text-white'
+               : 'bg-white border hover:bg-gray-50' }}">
+            {{ $i }}
+        </a>
+    @endfor
 
-        <button class="px-3 py-1 border rounded">
-            2
-        </button>
-
-        <button class="px-3 py-1 border rounded">
+    @if ($customers->hasMorePages())
+        <a href="{{ $customers->nextPageUrl() }}"
+           class="px-4 py-2 bg-white border rounded-lg hover:bg-gray-50">
             Next
-        </button>
-    </div>
+        </a>
+    @else
+        <span class="px-4 py-2 bg-gray-100 text-gray-400 rounded-lg">
+            Next
+        </span>
+    @endif
+
+</div>
 </div>
 @endsection

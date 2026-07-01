@@ -38,8 +38,8 @@
                 Customers
             </a>
 
-            <a href="#"
-                class="font-medium hover:text-indigo-200 transition duration-200">
+            <a href="{{ route('leads') }}"
+            class="text-white pb-1 {{ request()->routeIs('leads') ? 'border-b-2 border-white' : '' }}">
                 Leads
             </a>
 
